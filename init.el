@@ -1,0 +1,13 @@
+(transient-mark-mode 1)
+
+(define-key global-map (kbd "M-/") 'dabbrev-expand)
+(define-key global-map (kbd "C-x C-o") 'other-window)
+(define-key scheme-mode-map (kbd "M-g M-g") 'goto-line)
+(define-key scheme-mode-map (kbd "M-;") 'comment-dwim)
+(define-key scheme-mode-map (kbd "C-M-f") 'forward-sexp)
+(define-key scheme-mode-map (kbd "C-M-b") 'backward-sexp)
+(define-key scheme-mode-map (kbd "C-M-d") 'down-list)
+(define-key scheme-mode-map (kbd "C-M-u") 'backwark-up-lis)
+(define-key scheme-mode-map (kbd "C-M-u") 'backwark-up-lis)
+(define-key scheme-mode-map (kbd "C-M-a") 'begining-of-defun)
+(define-key scheme-mode-map (kbd "C-M-q") 'indent-pp-sexp)
