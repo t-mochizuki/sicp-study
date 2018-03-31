@@ -10,17 +10,18 @@
 ;; (define-key scheme-mode-map (kbd "C-M-b") 'backward-sexp)
 ;; (define-key scheme-mode-map (kbd "C-M-d") 'down-list)
 ;; (define-key scheme-mode-map (kbd "C-M-u") 'backwark-up-lis)
-;; (define-key scheme-mode-map (kbd "C-M-u") 'backwark-up-lis)
 ;; (define-key scheme-mode-map (kbd "C-M-a") 'begining-of-defun)
 ;; (define-key scheme-mode-map (kbd "C-M-q") 'indent-pp-sexp)
 
 
 (add-to-list 'exec-path "/usr/local/bin")
-(setq scheme-program-name "racket")
+(setq scheme-program-name "mit-scheme")
 
 (add-hook 'scheme-mode-hook
 	  '(lambda ()
-	     (setq indent-tabs-mode nil)))
+	     (setq indent-tabs-mode nil)
+	     (define-key scheme-mode-map (kbd "C-j") 'newline-and-indent)
+	     (define-key scheme-mode-map (kbd "C-M-k") 'kill-sexp)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
