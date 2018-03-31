@@ -18,6 +18,10 @@
 (add-to-list 'exec-path "/usr/local/bin")
 (setq scheme-program-name "racket")
 
+(add-hook 'scheme-mode-hook
+	  '(lambda ()
+	     (setq indent-tabs-mode nil)))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
