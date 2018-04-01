@@ -2,17 +2,16 @@
 
 (define-key global-map (kbd "M-/") 'dabbrev-expand)
 (define-key global-map (kbd "C-x C-o") 'other-window)
+(define-key global-map (kbd "C-t") 'other-window)
 
-;; (setq indent-tabs-mode nil)
-;; (define-key scheme-mode-map (kbd "M-g M-g") 'goto-line)
-;; (define-key scheme-mode-map (kbd "M-;") 'comment-dwim)
-;; (define-key scheme-mode-map (kbd "C-M-f") 'forward-sexp)
-;; (define-key scheme-mode-map (kbd "C-M-b") 'backward-sexp)
-;; (define-key scheme-mode-map (kbd "C-M-d") 'down-list)
-;; (define-key scheme-mode-map (kbd "C-M-u") 'backwark-up-lis)
-;; (define-key scheme-mode-map (kbd "C-M-a") 'begining-of-defun)
-;; (define-key scheme-mode-map (kbd "C-M-q") 'indent-pp-sexp)
-
+(define-key global-map (kbd "M-h") 'backward-char)
+(define-key global-map (kbd "M-j") 'next-line)
+(define-key global-map (kbd "M-k") 'previous-line)
+(define-key global-map (kbd "M-l") 'forward-char)
+(define-key global-map (kbd "M-[") 'forward-paragraph)
+(define-key global-map (kbd "M-]") 'backward-paragraph)
+(define-key global-map (kbd "C-c C-w") 'backward-kill-word)
+(define-key global-map (kbd "C-c C-u") 'kill-whole-line)
 
 (add-to-list 'exec-path "/usr/local/bin")
 (setq scheme-program-name "mit-scheme")
