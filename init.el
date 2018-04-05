@@ -60,7 +60,8 @@
 (define-key global-map (kbd "M-/") 'dabbrev-expand)
 (define-key global-map (kbd "C-x C-o") 'other-window)
 (define-key global-map (kbd "C-t") 'other-window)
-(define-key global-map (kbd "C-c C-w") 'backward-kill-word)
+(define-key global-map (kbd "C-w") 'backward-kill-word)
+(define-key global-map (kbd "C-c C-w") 'kill-region)
 (define-key global-map (kbd "C-c C-u") 'kill-whole-line)
 
 (add-to-list 'exec-path "/usr/local/bin")
@@ -84,7 +85,7 @@
  '(company-idle-delay nil)
  '(package-selected-packages
    (quote
-    (markdown-mode ddskk smartrep smartparens parinfer paredit cider slime counsel swiper popwin magit company))))
+    (history markdown-mode ddskk smartrep smartparens parinfer paredit cider slime counsel swiper popwin magit company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

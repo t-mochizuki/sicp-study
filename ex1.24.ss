@@ -32,3 +32,5 @@
   (start-prime-test n (runtime)))
 
 (map (lambda (x) (timed-prime-test3 x)) (iota 20 1000))
+(map (lambda (x) (list x (fast-prime? x 3))) (iota 20 1000))
+(map (lambda (x) (list x (fast-prime? x 3))) (iota 1 1000000))
