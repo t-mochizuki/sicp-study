@@ -9,6 +9,20 @@
 	     '("melpa"."http://melpa.org/packages/") t)
 (package-initialize)
 
+(savehist-mode t)
+(setq history-length 10000)
+
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+
+(setq initial-frame-alist
+      (append (list
+	       '(top . 0)
+	       '(left . 0)
+	       '(width . 230) ;; 160
+	       '(height . 65)) ;; 48
+	      initial-frame-alist))
+
 (ivy-mode t)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
@@ -63,6 +77,9 @@
 (define-key global-map (kbd "C-w") 'backward-kill-word)
 (define-key global-map (kbd "C-c C-w") 'kill-region)
 (define-key global-map (kbd "C-c C-u") 'kill-whole-line)
+(define-key global-map (kbd "C-x C-b") 'switch-to-buffer)
+(define-key global-map (kbd "M-a") 'backward-sentence)
+(define-key global-map (kbd "M-e") 'forward-sentence)
 
 (add-to-list 'exec-path "/usr/local/bin")
 (setq scheme-program-name "mit-scheme")
@@ -71,11 +88,31 @@
 (require 'paredit)
 (add-hook 'scheme-mode-hook
 	  '(lambda ()
-	     (setq indent-tabs-mode nil)
-	     (enable-paredit-mode)
-	     (show-paren-mode t)
-	     (define-key scheme-mode-map (kbd "C-j") 'newline-and-indent)
+             (enable-paredit-mode)
 	     (define-key scheme-mode-map (kbd "C-M-k") 'kill-sexp)))
+
+(add-hook 'lisp-mode-hook
+	  '(lambda ()
+             (enable-paredit-mode)
+	     (define-key lisp-mode-map (kbd "C-M-k") 'kill-sexp)))
+
+(add-hook 'c++-mode-hook
+	  '(lambda ()
+	     (c-set-style "stroustrup")))
+
+(add-hook 'markdown-mode-hook
+	  '(lambda ()))
+
+(add-hook 'text-mode-hook
+	  '(lambda ()
+	     (setq indent-tabs-mode nil)
+	     (define-key prog-mode-map (kbd "C-h") 'delete-backward-char)))
+
+(add-hook 'prog-mode-hook
+	  '(lambda ()
+	     (setq indent-tabs-mode nil)
+	     (show-paren-mode t)
+	     (define-key prog-mode-map (kbd "C-h") 'delete-backward-char)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -85,7 +122,7 @@
  '(company-idle-delay nil)
  '(package-selected-packages
    (quote
-    (history markdown-mode ddskk smartrep smartparens parinfer paredit cider slime counsel swiper popwin magit company))))
+    (lispxmp history markdown-mode ddskk smartrep smartparens parinfer paredit cider slime counsel swiper popwin magit company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
