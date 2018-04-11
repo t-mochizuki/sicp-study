@@ -6,7 +6,7 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives
-	     '("melpa"."http://melpa.org/packages/") t)
+             '("melpa"."http://melpa.org/packages/") t)
 (package-initialize)
 
 (savehist-mode t)
@@ -17,11 +17,11 @@
 
 (setq initial-frame-alist
       (append (list
-	       '(top . 0)
-	       '(left . 0)
-	       '(width . 230) ;; 160
-	       '(height . 65)) ;; 48
-	      initial-frame-alist))
+               '(top . 0)
+               '(left . 0)
+               '(width . 230) ;; 160
+               '(height . 65)) ;; 48
+              initial-frame-alist))
 
 (ivy-mode t)
 (setq ivy-use-virtual-buffers t)
@@ -48,26 +48,26 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'company-mode-hook
-	  '(lambda ()
-	     (set-face-attribute 'company-tooltip nil
-				 :foreground "black" :background "lightgrey")
-	     (set-face-attribute 'company-tooltip-common nil
-				 :foreground "black" :background "lightgrey")
-	     (set-face-attribute 'company-tooltip-common-selection nil
-				 :foreground "white" :background "steelblue")
-	     (set-face-attribute 'company-tooltip-selection nil
-				 :foreground "black" :background "steelblue")
-	     (set-face-attribute 'company-preview-common nil
-				 :background nil :foreground "lightgrey" :underline t)
-	     (set-face-attribute 'company-scrollbar-fg nil
-				 :background "orange")
-	     (set-face-attribute 'company-scrollbar-bg nil
-				 :background "gray40")
-	     (define-key company-mode-map (kbd "C-i") 'company-complete)
-	     (define-key company-active-map (kbd "C-n") 'company-select-next)
-	     (define-key company-active-map (kbd "C-p") 'company-select-previous)
-	     (define-key company-search-map (kbd "C-n") 'company-select-next)
-	     (define-key company-search-map (kbd "C-p") 'company-select-previous)))
+          '(lambda ()
+             (set-face-attribute 'company-tooltip nil
+                                 :foreground "black" :background "lightgrey")
+             (set-face-attribute 'company-tooltip-common nil
+                                 :foreground "black" :background "lightgrey")
+             (set-face-attribute 'company-tooltip-common-selection nil
+                                 :foreground "white" :background "steelblue")
+             (set-face-attribute 'company-tooltip-selection nil
+                                 :foreground "black" :background "steelblue")
+             (set-face-attribute 'company-preview-common nil
+                                 :background nil :foreground "lightgrey" :underline t)
+             (set-face-attribute 'company-scrollbar-fg nil
+                                 :background "orange")
+             (set-face-attribute 'company-scrollbar-bg nil
+                                 :background "gray40")
+             (define-key company-mode-map (kbd "C-i") 'company-complete)
+             (define-key company-active-map (kbd "C-n") 'company-select-next)
+             (define-key company-active-map (kbd "C-p") 'company-select-previous)
+             (define-key company-search-map (kbd "C-n") 'company-select-next)
+             (define-key company-search-map (kbd "C-p") 'company-select-previous)))
 
 (transient-mark-mode t)
 
@@ -90,21 +90,21 @@
 (require 'paredit)
 
 (add-hook 'scheme-mode-hook
-	  '(lambda ()
+          '(lambda ()
              (enable-paredit-mode)
-	     (define-key scheme-mode-map (kbd "C-M-k") 'kill-sexp)))
+             (define-key scheme-mode-map (kbd "C-M-k") 'kill-sexp)))
 
 (add-hook 'lisp-mode-hook
-	  '(lambda ()
+          '(lambda ()
              (enable-paredit-mode)
-	     (define-key lisp-mode-map (kbd "C-M-k") 'kill-sexp)))
+             (define-key lisp-mode-map (kbd "C-M-k") 'kill-sexp)))
 
 (add-hook 'c++-mode-hook
-	  '(lambda ()
-	     (c-set-style "stroustrup")))
+          '(lambda ()
+             (c-set-style "stroustrup")))
 
 (add-hook 'markdown-mode-hook
-	  '(lambda ()))
+          '(lambda ()))
 
 (add-hook 'view-mode-hook
           '(lambda ()
@@ -114,13 +114,13 @@
              (define-key view-mode-map (kbd "h") 'backward-char)))
 
 (add-hook 'text-mode-hook
-	  '(lambda ()
-	     (setq indent-tabs-mode nil)))
+          '(lambda ()
+             (setq indent-tabs-mode nil)))
 
 (add-hook 'prog-mode-hook
-	  '(lambda ()
-	     (setq indent-tabs-mode nil)
-	     (show-paren-mode t)))
+          '(lambda ()
+             (setq indent-tabs-mode nil)
+             (show-paren-mode t)))
 
 (require 'whitespace)
 (global-whitespace-mode t)
