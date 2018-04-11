@@ -86,6 +86,7 @@
 (setq inferior-lisp-program "sbcl")
 
 (require 'paredit)
+
 (add-hook 'scheme-mode-hook
 	  '(lambda ()
              (enable-paredit-mode)
@@ -114,15 +115,43 @@
 	     (show-paren-mode t)
 	     (define-key prog-mode-map (kbd "C-h") 'delete-backward-char)))
 
+(require 'whitespace)
+(global-whitespace-mode t)
+(setq whitespace-style '(face
+                         trailing
+                         tabs
+                         spaces
+                         empty
+                         space-mark
+                         tab-mark
+                         newline
+                         ))
+(setq whitespace-display-mappings
+      '((space-mark ?\u3000 [?\u25a1])))
+
+(setq whitespace-space-regexp "\\(\u3000+\\)")
+(set-face-attribute 'whitespace-trailing nil
+                    :foreground "Purple"
+                    :background "White"
+                    :underline t)
+(set-face-attribute 'whitespace-tab nil
+                    :foreground "Purple"
+                    :background "White"
+                    :underline t)
+(set-face-attribute 'whitespace-space nil
+                    :foreground "Purple"
+                    :background "White")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-idle-delay nil)
+ '(eww-history-limit 1000)
  '(package-selected-packages
    (quote
-    (lispxmp history markdown-mode ddskk smartrep smartparens parinfer paredit cider slime counsel swiper popwin magit company))))
+    (yaml-mode lispxmp history markdown-mode ddskk smartrep smartparens parinfer paredit cider slime counsel swiper popwin magit company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
