@@ -80,6 +80,8 @@
 (define-key global-map (kbd "C-x C-b") 'switch-to-buffer)
 (define-key global-map (kbd "M-a") 'backward-sentence)
 (define-key global-map (kbd "M-e") 'forward-sentence)
+(define-key global-map (kbd "C-h") 'delete-backward-char)
+(define-key global-map (kbd "C-c C-v") 'view-mode)
 
 (add-to-list 'exec-path "/usr/local/bin")
 (setq scheme-program-name "mit-scheme")
@@ -104,16 +106,21 @@
 (add-hook 'markdown-mode-hook
 	  '(lambda ()))
 
+(add-hook 'view-mode-hook
+          '(lambda ()
+             (define-key view-mode-map (kbd "l") 'forward-char)
+             (define-key view-mode-map (kbd "k") 'previous-line)
+             (define-key view-mode-map (kbd "j") 'next-line)
+             (define-key view-mode-map (kbd "h") 'backward-char)))
+
 (add-hook 'text-mode-hook
 	  '(lambda ()
-	     (setq indent-tabs-mode nil)
-	     (define-key prog-mode-map (kbd "C-h") 'delete-backward-char)))
+	     (setq indent-tabs-mode nil)))
 
 (add-hook 'prog-mode-hook
 	  '(lambda ()
 	     (setq indent-tabs-mode nil)
-	     (show-paren-mode t)
-	     (define-key prog-mode-map (kbd "C-h") 'delete-backward-char)))
+	     (show-paren-mode t)))
 
 (require 'whitespace)
 (global-whitespace-mode t)
