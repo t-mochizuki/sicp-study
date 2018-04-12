@@ -82,6 +82,8 @@
 (define-key global-map (kbd "M-e") 'forward-sentence)
 (define-key global-map (kbd "C-h") 'delete-backward-char)
 (define-key global-map (kbd "C-c C-v") 'view-mode)
+(define-key global-map (kbd "C-c [ b") 'previous-buffer)
+(define-key global-map (kbd "C-c ] b") 'next-buffer)
 
 (add-to-list 'exec-path "/usr/local/bin")
 (setq scheme-program-name "mit-scheme")
@@ -108,6 +110,15 @@
 
 (add-hook 'view-mode-hook
           '(lambda ()
+             (define-key view-mode-map (kbd "i") 'view-mode)
+             (define-key view-mode-map (kbd "w") 'forward-word)
+             (define-key view-mode-map (kbd "e") 'forward-word)
+             (define-key view-mode-map (kbd "b") 'backward-word)
+             (define-key view-mode-map (kbd "C-u") 'scroll-down-command)
+             (define-key view-mode-map (kbd "C-d") 'scroll-up-command)
+             (define-key view-mode-map (kbd "{") 'backward-paragraph)
+             (define-key view-mode-map (kbd "}") 'forward-paragraph)
+             (define-key view-mode-map (kbd "G") 'end-of-buffer)
              (define-key view-mode-map (kbd "l") 'forward-char)
              (define-key view-mode-map (kbd "k") 'previous-line)
              (define-key view-mode-map (kbd "j") 'next-line)
