@@ -88,6 +88,7 @@
 (define-key global-map (kbd "C-c ] b") 'next-buffer)
 
 (add-to-list 'exec-path "/usr/local/bin")
+(add-to-list 'exec-path "~/leiningen-2.7.1/bin")
 (setq scheme-program-name "mit-scheme")
 (setq inferior-lisp-program "sbcl")
 
