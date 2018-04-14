@@ -9,6 +9,8 @@
              '("melpa"."http://melpa.org/packages/") t)
 (package-initialize)
 
+(setq markdown-command "~/Markdown_1.0.1/Markdown.pl")
+
 (savehist-mode t)
 (setq history-length 10000)
 
@@ -159,6 +161,8 @@
 (set-face-attribute 'whitespace-space nil
                     :foreground "Purple"
                     :background "White")
+(set-face-attribute 'whitespace-empty nil
+                    :background "White")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -169,7 +173,7 @@
  '(eww-history-limit 1000)
  '(package-selected-packages
    (quote
-    (yaml-mode lispxmp history markdown-mode ddskk smartrep smartparens parinfer paredit cider slime counsel swiper popwin magit company))))
+    (typescript-mode yaml-mode lispxmp history markdown-mode ddskk smartrep smartparens parinfer paredit cider slime counsel swiper popwin magit company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
